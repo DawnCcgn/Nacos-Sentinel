@@ -1,5 +1,5 @@
 server:
-  port: 8849
+  port: 8845
 spring:
   cloud:
     nacos:
@@ -17,7 +17,7 @@ spring:
         flow: # 限流配置
           nacos:
             server-addr: 192.168.80.195:8848
-            dataId: sentinel-server
+            dataId: sentinel-server #nacos配置文件的名称
             groupId: DEFAULT_GROUP
             data-type: json
             rule-type: flow

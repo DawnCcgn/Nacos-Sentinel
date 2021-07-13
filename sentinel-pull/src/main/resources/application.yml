@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 8718
+        dashboard: localhost:8086
+      filter:
+        enabled: false  # 链路配置
+      web-context-unify: false
+
+  application:
+    name: sentinel-pull

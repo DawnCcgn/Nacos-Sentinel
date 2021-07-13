@@ -3,13 +3,12 @@ spring:
     sentinel:
       transport:
         port: 8719 #默认端口
-
         dashboard: localhost:8086 #控制台地址
       filter:
         enabled: false  # 链路配置
       web-context-unify: false
       datasource: # 持久化配置
-        ds1:
+        flow:
           nacos:
             server-addr: 192.168.80.195:8848
             dataId: sentinel-server2
