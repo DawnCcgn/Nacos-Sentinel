@@ -1,0 +1,8 @@
+server:
+  port: 8844
+spring:
+  cloud:
+    nacos:
+      discovery:
+        service: sentinel-server-consumer
+        server-addr: localhost:8848

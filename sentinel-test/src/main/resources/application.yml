@@ -1,0 +1,69 @@
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 8719 #默认端口
+
+        dashboard: localhost:8086 #控制台地址
+      filter:
+        enabled: false  # 链路配置
+      web-context-unify: false
+      datasource: # 持久化配置
+        ds1:
+          nacos:
+            server-addr: 192.168.80.195:8848
+            dataId: sentinel-server2
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+
+#        flow:
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId: ${spring.application.name}-flow-rules
+#            groupId: SENTINEL_GROUP
+#            # 规则类型，取值见：
+#            # org.springframework.cloud.alibaba.sentinel.datasource.RuleType
+#            rule-type: flow
+#        degrade:
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId: ${spring.application.name}-degrade-rules
+#            groupId: SENTINEL_GROUP
+#            rule-type: degrade
+#        system:
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId: ${spring.application.name}-system-rules
+#            groupId: SENTINEL_GROUP
+#            rule-type: system
+#        authority:
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId: ${spring.application.name}-authority-rules
+#            groupId: SENTINEL_GROUP
+#            rule-type: authority
+#        param-flow:
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId: ${spring.application.name}-param-flow-rules
+#            groupId: SENTINEL_GROUP
+#            rule-type: param-flow
+
+#  resource：资源名称；
+#  limitApp：来源应用；
+#  grade：阈值类型，0表示线程数，1表示QPS；
+#  count：单机阈值；
+#  strategy：流控模式，0表示直接，1表示关联，2表示链路；
+#  controlBehavior：流控效果，0表示快速失败，1表示Warm Up，2表示排队等待；
+#  clusterMode：是否集群。
+
+
+  application:
+    name: sentinel-server2 # 服务名
+
+
+server:
+  port: 8083
+
+

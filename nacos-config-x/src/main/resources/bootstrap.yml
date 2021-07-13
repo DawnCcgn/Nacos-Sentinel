@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.80.195:8848
+        namespace:
+        #        group: #如果写了，不赋值，会加载失败，读取不到配置
+        name: nacos-config
+        cluster-name:
+        file-extension: yaml
+        prefix: nacos-config
+
+  profiles:
+    active: dev
+
+
+server:
+  port: 8088
+
+
+

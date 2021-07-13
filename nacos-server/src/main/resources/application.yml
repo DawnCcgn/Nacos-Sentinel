@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.80.195:8848
+        namespace:
+#        group:
+        service: nacos-server
+        cluster-name: nacos-sh
+        ephemeral: true  #注册的实例是否为临时实例
+        weight: 2  #配置不生效
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8086
+      filter:
+        enabled: false
+      web-context-unify: false
+
+  application:
+    name: sentinel-server
+server:
+  port: 8083
+
+
+
+#        port: 8086   #注册的实例的端口
+#        heart-beat-interval: #心跳时间间隔
+#        instance-enabled: true #该实例是否接受请求
+#        naming-load-cache-at-start: #在服务启动时本地缓存中加载 默认falses
+#        register-enabled: true #如果你只是想订阅，但不想注册你的服务
+#        watch-delay: #从nacos-server持续推送的延迟时间

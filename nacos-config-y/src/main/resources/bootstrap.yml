@@ -1,0 +1,37 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.80.195:8848
+        namespace:
+        extension-configs: # 多个配置
+          - dataId: nacos-config.yaml
+            group: DEFAULT_GROUP
+            refresh: true
+          - dataId: nacos-config-a.yaml
+            group: DEFAULT_GROUP
+            refresh: true
+          - dataId: nacos-config-b.yaml
+            group: DEFAULT_GROUP
+            refresh: false
+
+server:
+  port: 8099
+#        name:     #先取前缀，再取名字，最后取spring.application.name
+#        prefix:   #先取前缀，再取名字，最后取spring.application.name
+#        timeout: # 从nacos配置中心获取配置的超时时间
+#        file-extension:  #获取配置文件的类型
+#        max-retry: #Nacos允许的服务器重新连接错误的最大数目
+#        config-retry-time: #Nacos获取配置失败重试次数
+#        encode:  #默认UTF-8  对 nacos 配置内容进行编码
+#        refresh-enabled: true #刷新配置的开关，默认打开
+#        context-path: #nacos配置的上下文路径
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.80.195:8848
+        namespace:
+        #        group:
+        service: nacos-server-consumer
+        cluster-name: nacos-sh
+        ephemeral: true  #注册的实例是否为临时实例
+        weight: 2  #配置不生效
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8086
+  application:
+    name: nacos-server-consumer
+
+server:
+  port: 8084
+
+#==========================================ribbon有关配置（openfeign配置相同-----底层是；ribbon）
+#ribbon:
+#  ConnectTimeout: 2000 #连接超时
+#  ReadTimeout: 2000  #读取超时
+
+#nacos-server:
+##  ribbon:
+##    ConnectTimeout: 2000 #连接超时
+##    ReadTimeout: 2000  #读取超时
+#  ribbon:
+##    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#    NFLoadBalancerRuleClassName: com.hpw.config.NacosWeightLoadBalancerRule #自定义权重相关的负载均衡
+
+
+
+#  MaxTotalConnections: 500 #最大连接数
+#  MaxConnectionsPerHost: 500  #每个host最大连接数
+#logging:
+#  level:
+#    com.hpw.openfeign.ConsumerServerOpenFeign: debug
+
+#  ribbon:
+#    ConnectTimeout: 2000
+#    ReadTimeout: 2000
+#  eager-load:
+#    #    哪个模块需要开启饥饿加载
+#    clients: cloud-consumer-order80
+#    #    饥饿加载模式
+#    enabled: true
+
+
+
+
+#RoundRobinRule:
+#  轮询策略，Ribbon默认策略。默认超过10次获取到的server都不可用，会返回一个空的server,
+#RandomRule:
+#  随机策略，如果随机到的server为null 或者不可用的话。会不停地循环选取。
+#RetryRule:
+#  重试策略，先按照RoundRobinRule的策略获取服务，如果获取服务失败则在指定时间内会进行重试，获取可用的服务
+#  WeightedResponseTimeRule
+#  对RoundRobinRule的扩展，响应速度越快的实例选择权重越大，越容易被选择
+#BestAvailableRule:
+#  最小连接数策略，遍历serverList，会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，然后选择一个并发量最小的服务
+#AvailabilityFilteringRule:
+#  可用过滤策略。扩展了轮询策略，会先通过默认的轮询选取一个server，再去判断该server是否超时可用、当前连接数是否超限，都成功再返回。
+#zoneAvoidanceRule:
+#  区域权衡策略。扩展了轮询策略，除了过滤超时和链接数过多的server，还会过滤掉不符合要求的zone 区域里面的所有节点，始终保证在一个区域/机房内的服务实例进行轮询。
+
+
+
+

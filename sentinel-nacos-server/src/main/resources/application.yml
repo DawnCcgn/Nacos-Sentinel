@@ -1,0 +1,33 @@
+server:
+  port: 8846
+spring:
+  cloud:
+    nacos:
+      discovery:
+        service: sentinel-server
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        port: 8717
+        dashboard: localhost:8086
+      filter:
+        enabled: false  # 链路配置
+      web-context-unify: false
+      datasource: # 持久化配置
+        flow: # 限流配置
+          nacos:
+            server-addr: 192.168.80.195:8848
+            dataId: sentinel-server
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+        degrade: # 熔断配置
+          nacos:
+            server-addr: 192.168.80.195:8848
+            dataId: sentinel2-server
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: degrade
+
+  application:
+    name: sentinel-server
