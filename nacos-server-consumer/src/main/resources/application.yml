@@ -16,6 +16,15 @@ spring:
   application:
     name: nacos-server-consumer
 
+  zipkin:
+    base-url: http://119.23.213.192:9411/
+    sender:
+      type: web
+    discovery-client-enabled: false
+  sleuth:
+    sampler:
+      probability: 1
+
 server:
   port: 8084
 
